@@ -1,6 +1,6 @@
 {
-  "name": "@toast-ui/editor",
-  "version": "3.2.2",
+  "name": "toast-ui-csp-editor",
+  "version": "3.3.2",
   "description": "GFM  Markdown Wysiwyg Editor - Productive and Extensible",
   "keywords": [
     "nhn",
