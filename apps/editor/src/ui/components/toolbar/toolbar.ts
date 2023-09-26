@@ -134,7 +134,7 @@ export class Toolbar extends Component<Props, State> {
   }
 
   private appendTooltipToRoot() {
-    const tooltip = `<div class="${cls('tooltip')}" style="display:none">
+    const tooltip = `<div class="${cls('tooltip')} ${cls('hide')}">
         <div class="arrow"></div>
         <span class="text"></span>
       </div>`;
@@ -313,22 +313,21 @@ export class Toolbar extends Component<Props, State> {
       execCommand: this.execCommand,
       setPopupInfo: this.setPopupInfo,
     };
-    const toolbarStyle = previewStyle === 'tab' ? { borderTopLeftRadius: 0 } : null;
+    const toolbarClass = previewStyle === 'tab' ? cls('bordertopleft') : null;
 
     return html`
       <div class="${cls('toolbar')}">
         <div
-          class="${cls('md-tab-container')}"
-          style="display: ${editorType === 'wysiwyg' || previewStyle === 'vertical'
-            ? 'none'
-            : 'block'}"
+          class="${cls('md-tab-container')} ${editorType === 'wysiwyg' ||
+          previewStyle === 'vertical'
+            ? cls('hide')
+            : cls('block')}"
         >
           <${Tabs} tabs=${this.tabs} activeTab=${activeTab} onClick=${this.toggleTab} />
         </div>
         <div
-          class="${cls('defaultUI-toolbar')}"
+          class="${cls('defaultUI-toolbar')} ${toolbarClass}"
           ref=${(el: HTMLElement) => (this.refs.el = el)}
-          style=${toolbarStyle}
         >
           ${items.map(
             (group, index) => html`

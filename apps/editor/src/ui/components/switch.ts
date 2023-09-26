@@ -34,7 +34,7 @@ export class Switch extends Component<Props, State> {
     const { editorType, eventEmitter } = this.props;
 
     return html`
-      <div class="${cls('mode-switch')}" style="display: ${this.state.hide ? 'none' : 'block'}">
+      <div class="${cls('mode-switch')} ${this.state.hide ? cls('hide') : cls('block')}">
         <div
           class="tab-item${editorType === 'markdown' ? ' active' : ''}"
           onClick=${() => {

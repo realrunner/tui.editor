@@ -11,7 +11,7 @@ import { Emitter } from '@t/event';
 import html from '@/ui/vdom/template';
 import { Component } from '@/ui/vdom/component';
 import { createPopupInfo } from '@/ui/toolbarItemFactory';
-import { getOuterWidth } from '@/utils/dom';
+import { cls, getOuterWidth } from '@/utils/dom';
 import { connectHOC } from './buttonHoc';
 
 interface Props {
@@ -78,14 +78,13 @@ export class ToolbarButtonComp extends Component<Props> {
 
   render() {
     const { hideTooltip, disabled, item, active } = this.props;
-    const style = { display: item.hidden ? 'none' : null, ...item.style };
-    const classNames = `${item.className || ''}${active ? ' active' : ''}`;
+    const styleClass = item.hidden ? cls('hide') : '';
+    const classNames = `${item.className || ''}${active ? ' active' : ''} ${styleClass}`;
 
     return html`
       <button
         ref=${(el: HTMLElement) => (this.refs.el = el)}
         type="button"
-        style=${style}
         class=${classNames}
         onClick=${this.execCommand}
         onMouseover=${this.showTooltip}

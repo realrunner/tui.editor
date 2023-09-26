@@ -69,14 +69,13 @@ class CustomToolbarItemComp extends Component<Props> {
 
   render() {
     const { disabled, item } = this.props;
-    const style = { display: item.hidden ? 'none' : 'inline-block' };
+    const styleClass = item.hidden ? cls('hide') : cls('inlineblock');
     const getListener = (listener: Function) => (disabled ? null : listener);
 
     return html`
       <div
         ref=${(el: HTMLElement) => (this.refs.el = el)}
-        style=${style}
-        class=${cls('toolbar-item-wrapper')}
+        class="${cls('toolbar-item-wrapper')} ${styleClass}"
         onClick=${getListener(this.showPopup)}
         onMouseover=${getListener(this.showTooltip)}
         onMouseout=${getListener(this.props.hideTooltip)}

@@ -887,3 +887,16 @@
     max-width: none;
   }
 }
+
+.toastui-editor-hide {
+  display: none;
+}
+.toastui-editor-block {
+  display: block;
+}
+.toastui-editor-inlineblock {
+  display: inline-block;
+}
+.toastui-editor-bordertopleft {
+  border-top-left-radius: 0;
+}
