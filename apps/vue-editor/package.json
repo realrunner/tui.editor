@@ -1,6 +1,6 @@
 {
   "name": "toast-ui-csp-vue-editor",
-  "version": "3.3.3",
+  "version": "3.3.6",
   "description": "TOAST UI Editor for Vue",
   "main": "dist/toastui-vue-editor.js",
   "module": "dist/esm/index.js",
